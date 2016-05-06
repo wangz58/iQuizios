@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1832D0BE1CDC4E3D00F8361A /* marvel.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1832D0BB1CDC4E3D00F8361A /* marvel.jpeg */; };
+		1832D0BF1CDC4E3D00F8361A /* math.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1832D0BC1CDC4E3D00F8361A /* math.jpg */; };
+		1832D0C01CDC4E3D00F8361A /* science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1832D0BD1CDC4E3D00F8361A /* science.jpg */; };
 		18A4712C1CDBC4EB005CE78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A4712B1CDBC4EB005CE78D /* AppDelegate.swift */; };
 		18A4712E1CDBC4EB005CE78D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A4712D1CDBC4EB005CE78D /* ViewController.swift */; };
 		18A471311CDBC4EB005CE78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A4712F1CDBC4EB005CE78D /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1832D0BB1CDC4E3D00F8361A /* marvel.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marvel.jpeg; sourceTree = "<group>"; };
+		1832D0BC1CDC4E3D00F8361A /* math.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = math.jpg; sourceTree = "<group>"; };
+		1832D0BD1CDC4E3D00F8361A /* science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = science.jpg; sourceTree = "<group>"; };
 		18A471281CDBC4EB005CE78D /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A4712B1CDBC4EB005CE78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18A4712D1CDBC4EB005CE78D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,9 @@
 			children = (
 				18A4712B1CDBC4EB005CE78D /* AppDelegate.swift */,
 				18A4712D1CDBC4EB005CE78D /* ViewController.swift */,
+				1832D0BB1CDC4E3D00F8361A /* marvel.jpeg */,
+				1832D0BC1CDC4E3D00F8361A /* math.jpg */,
+				1832D0BD1CDC4E3D00F8361A /* science.jpg */,
 				18A4712F1CDBC4EB005CE78D /* Main.storyboard */,
 				18A471321CDBC4EB005CE78D /* Assets.xcassets */,
 				18A471341CDBC4EB005CE78D /* LaunchScreen.storyboard */,
@@ -124,7 +133,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A471361CDBC4EB005CE78D /* LaunchScreen.storyboard in Resources */,
+				1832D0BF1CDC4E3D00F8361A /* math.jpg in Resources */,
 				18A471331CDBC4EB005CE78D /* Assets.xcassets in Resources */,
+				1832D0BE1CDC4E3D00F8361A /* marvel.jpeg in Resources */,
+				1832D0C01CDC4E3D00F8361A /* science.jpg in Resources */,
 				18A471311CDBC4EB005CE78D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +263,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uw.iQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -262,6 +275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uw.iQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,6 +301,7 @@
 				18A4713C1CDBC4EB005CE78D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

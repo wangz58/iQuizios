@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     var tableViewData : [String] = ["Mathematics", "Marvel Super Heroes", "Science"];
     var tableViewDesc : [String] = ["This is a math test", "This is a test about Marvel Heroes", "This is a test about science"]
-    var imageSource : [UIImage] = [UIImage(contentsOfFile: "/Users/apple/code/info498/iQuizios/iQuiz/images/math.jpg")!, UIImage(contentsOfFile: "/Users/apple/code/info498/iQuizios/iQuiz/images/marvel.jpeg")!, UIImage(contentsOfFile: "/Users/apple/code/info498/iQuizios/iQuiz/images/science.jpg")!];
+    var imageSource : [UIImage] = [UIImage(named: "math.jpg")!, UIImage(named: "marvel.jpeg")!, UIImage(named: "science.jpg")!];
     
     override func viewDidLoad() {
         super.viewDidLoad()
