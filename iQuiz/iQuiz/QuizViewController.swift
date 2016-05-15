@@ -74,9 +74,11 @@ class QuizViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         let thisAnswer = Int(correctAnswer[quizNum]);
         let thisQuiz = answers[quizNum] as NSArray;
         let thisQuizAnswer = thisQuiz[thisAnswer! - 1] as! String;
+        let questionTitle = questions[quizNum];
         answerView.qa = thisQuizAnswer;
         answerView.points = points;
         answerView.quizNum = quizNum;
+        answerView.questionTitle = questionTitle;
         answerView.questionList = self.questionList;
     }
     

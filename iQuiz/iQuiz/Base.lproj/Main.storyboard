@@ -24,7 +24,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Root_View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -175,6 +175,12 @@
                                     <segue destination="BNU-eG-3T0" kind="show" identifier="mainSegue" id="eQd-42-nnv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hap-ZW-lg7">
+                                <rect key="frame" x="166" y="139" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -183,7 +189,9 @@
                             <constraint firstItem="J7m-8X-c48" firstAttribute="top" secondItem="5ZH-dm-4rf" secondAttribute="bottom" constant="8" id="9D4-k0-Fmj"/>
                             <constraint firstItem="V0D-8L-eT7" firstAttribute="leading" secondItem="5ZH-dm-4rf" secondAttribute="trailing" constant="24" id="J6s-n1-1ZM"/>
                             <constraint firstItem="SDh-t3-9pI" firstAttribute="centerX" secondItem="JjI-h9-XHK" secondAttribute="centerX" id="eS1-Hu-DCc"/>
+                            <constraint firstItem="hap-ZW-lg7" firstAttribute="centerX" secondItem="JjI-h9-XHK" secondAttribute="centerX" id="gho-xw-LXT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V0D-8L-eT7" secondAttribute="trailing" constant="8" id="qde-dr-yR9"/>
+                            <constraint firstItem="PfS-oa-tcF" firstAttribute="top" secondItem="hap-ZW-lg7" secondAttribute="bottom" constant="60" id="rhR-T8-7nd"/>
                             <constraint firstItem="SDh-t3-9pI" firstAttribute="centerY" secondItem="JjI-h9-XHK" secondAttribute="centerY" id="tKD-lo-zGf"/>
                             <constraint firstItem="PfS-oa-tcF" firstAttribute="centerX" secondItem="JjI-h9-XHK" secondAttribute="centerX" id="vgw-eT-tNM"/>
                         </constraints>
@@ -192,6 +200,7 @@
                         <outlet property="answerLabel" destination="SDh-t3-9pI" id="2OL-wz-TdP"/>
                         <outlet property="finished" destination="5ZH-dm-4rf" id="bg8-YK-pQV"/>
                         <outlet property="next" destination="V0D-8L-eT7" id="Zpe-Xd-oUC"/>
+                        <outlet property="questionLabel" destination="hap-ZW-lg7" id="7jg-6t-CQL"/>
                         <outlet property="userALabel" destination="PfS-oa-tcF" id="U3q-rM-axj"/>
                     </connections>
                 </viewController>

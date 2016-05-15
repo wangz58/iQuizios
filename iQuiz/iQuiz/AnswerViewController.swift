@@ -14,7 +14,9 @@ class AnswerViewController: UIViewController {
     var points : Int = 0;
     var quizNum : Int = 0;
     var questionList = [];
+    var questionTitle : String = "";
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var userALabel: UILabel!
     @IBOutlet weak var next: UIButton!
     @IBOutlet weak var finished: UIButton!
@@ -28,8 +30,8 @@ class AnswerViewController: UIViewController {
         } else {
             userALabel.text = "Sorry, " + userA +  " is not the correct answer";
         }
-
-        answerLabel.text = qa;
+        questionLabel.text = "The question is: " + self.questionTitle;
+        answerLabel.text = "The correct answer is: " + qa;
         print(quizNum);
         print(self.questionList.count)
         if (self.quizNum == self.questionList.count - 1) {

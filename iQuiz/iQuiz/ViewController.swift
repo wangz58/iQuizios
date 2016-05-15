@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedRow : Int = -1;
+    var getUrl = "http://tednewardsandbox.site44.com/questions.json";
     @IBOutlet weak var tableView: UITableView!
-    var downloadSuccess : Bool = true;
     var tableViewData : [String] = ["Mathematics", "Marvel Super Heroes", "Science"];
     var tableViewDesc : [String] = ["", "", ""]
     var mathQ = [];
@@ -25,8 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         retrieveOffline("/Users/apple/code/info498/iQuizios/iQuiz/iQuiz/resources.json")
-        retrieveOnline("http://tednewardsandbox.site44.com/questions.json")
-        print(downloadSuccess);
+        retrieveOnline(getUrl)
     }
     
     private func retrieveOffline(getPath : String) {
@@ -75,7 +74,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if error != nil {
                 print("httpGet error:")
                 print(error)
-                self.downloadSuccess = false;
             } else {
                 print(data)
                 let rawData = data.dataUsingEncoding(NSUTF8StringEncoding);
@@ -84,8 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let fileM = NSFileManager.defaultManager();
                 fileM.createFileAtPath("/Users/apple/code/info498/iQuizios/iQuiz/iQuiz/resources.json", contents: rawData, attributes: nil);
                 do{
-                    let convertedData = data.dataUsingEncoding(NSUTF8StringEncoding)
-                    let json = try NSJSONSerialization.JSONObjectWithData(convertedData!, options: .AllowFragments)
+                    let json = try NSJSONSerialization.JSONObjectWithData(rawData!, options: .AllowFragments)
                     if let jsonObject = (json as? NSArray){
                         var i = 0;
                         for quiz in jsonObject {
@@ -118,7 +115,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     
                 }catch {
                     print("Error with Json: \(error)")
-                    self.downloadSuccess = false;
                 }
             }
         }
@@ -138,8 +134,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func pressed(sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Alert", message: "Settings Goes Here", preferredStyle: UIAlertControllerStyle.Alert);
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil));
+        let alert = UIAlertController(title: "Settings", message: "Update JSON file", preferredStyle: UIAlertControllerStyle.Alert);
+        
+        let confirmAction = UIAlertAction(title: "Check Now", style: .Default) { (_) in
+            if let field = alert.textFields![0] as? UITextField {
+                // store your data
+                self.getUrl = field.text!;
+                print("self.getUrl is updated to " + self.getUrl)
+//                    UIApplication.sharedApplication().keyWindow?.rootViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Root_View")
+                self.retrieveOnline(self.getUrl)
+            } else {
+                // user did not fill field
+                self.getUrl = "http://tednewardsandbox.site44.com/questions.json"
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.text = "http://tednewardsandbox.site44.com/questions.json"
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
         self.presentViewController(alert, animated: true, completion: nil);
     }
 
@@ -170,25 +184,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let quizView : QuizViewController = storyboard?.instantiateViewControllerWithIdentifier("quiz") as! QuizViewController;
         switch selectedRow {
         case 0:
-            quizView.questionList = mathQ
+            quizView.questionList = scienceQ
         case 1:
             quizView.questionList = marvelQ
         case 2:
-            quizView.questionList = scienceQ
+            quizView.questionList = mathQ
         default:
             print("questionList not being passed successfully")
         }
         quizView.quizNum = 0;
         self.navigationController?.pushViewController(quizView, animated: true);
     }
-    
-//    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//        return tableViewDesc[section];
-//    }
-//    
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return tableViewData[section];
-//    }
 
 }
 
